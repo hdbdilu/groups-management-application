@@ -23,7 +23,7 @@ To start three containers
 run: 
    docker-compose up
 
-Once all three containers are up, go to your browser and hit : http://localhost:8080
+Once all three containers are up, go to your browser and hit : http://localhost:3000
 
 Signup using google or manual and start creating and managing groups.
 
