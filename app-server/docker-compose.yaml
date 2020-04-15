@@ -1,0 +1,32 @@
+version: "3"
+services:
+  db:
+    image: mysql
+    ports:
+      - 3306:3306
+    restart: always
+    environment:
+      MYSQL_DATABASE: login_database
+      MYSQL_USER: nitikagoel
+      MYSQL_PASSWORD: nitikagoel
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - backend
+  app-server:
+    build: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/login_database?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&useLegacyDatetimeCode=false
+      SPRING_DATASOURCE_USERNAME: nitikagoel
+      SPRING_DATASOURCE_PASSWORD: nitikagoel
+    networks:
+      - backend
+networks:
+  backend:
+volumes:
+  db-data:
