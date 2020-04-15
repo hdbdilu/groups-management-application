@@ -14,14 +14,14 @@ http://localhost:3000
 2. Change directory to the location of the repository.
 
 To build images for app-server, client-app , db 
-run:
-   # docker-compose build
+run
+   docker-compose build
 
 This step will download all maven dependencies for app-server. Once app-server is up, it will build client app and download all node modules. After this step three services will be started : will be created.
 
 To start three containers 
-run:
-   # docker-compose up
+run
+   docker-compose up
 
 Once all three containers are up, go to your browser and hit : http://localhost:8080
 
