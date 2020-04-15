@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import "../user/login/Page.css";
 
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getCurrentUserAdminGroups } from "../util/RestApiCaller";
 class Home extends Component {
   state = {
     currentUserAdminGroups: []
   };
   componentDidMount = () => {
+
     this.fetchCurrentUserAdminGroups();
   };
   fetchCurrentUserAdminGroups() {

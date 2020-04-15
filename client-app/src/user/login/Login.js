@@ -74,7 +74,7 @@ class LoginForm extends Component {
       .then(response => {
         localStorage.setItem(ACCESS_TOKEN, response.accessToken);
         Alert.success("You're successfully logged in!");
-        this.props.history.push("/Home");
+        window.location.reload(); 
       })
       .catch(error => {
         Alert.error(
