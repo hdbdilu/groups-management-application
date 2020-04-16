@@ -8,9 +8,9 @@ class AppHeader extends Component {
       <header className="app-header">
         <div align="center" className="container">
           <div>
-            <Link className="app-title" to="/">
-              Groups Management Portal
-            </Link>
+           
+              <h2>GROUPS MANAGEMENT PORTAL</h2>
+            
           </div>
 
           <div>

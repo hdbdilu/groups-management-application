@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.page-content {
-  background: #fff;
-  box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
-  border-radius: 2px;
-  width: 500px;
-  display: inline-block;
-  margin-top: 80px;
-  vertical-align: middle;
-  position: relative;
-  padding: 35px;
-}
 
 .social-btn {
   margin-bottom: 15px;
@@ -30,15 +19,6 @@
   margin-top: 7px;
 }
 
-.social-btn.facebook img {
-  height: 24px;
-  margin-left: 3px;
-}
-
-.social-btn.github img {
-  height: 24px;
-  margin-left: 3px;
-}
 
 .login-link {
   color: rgba(0, 0, 0, 0.65);

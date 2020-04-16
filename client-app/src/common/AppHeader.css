@@ -16,8 +16,8 @@
 
 .app-nav ul {
   list-style-position: none;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
 .app-nav ul li {
@@ -32,6 +32,7 @@
   padding-left: 15px;
   padding-right: 15px;
   color: rgba(0, 0, 0, 0.65);
+  background:#D6EAF8 
 }
 
 .app-nav ul li a:hover {

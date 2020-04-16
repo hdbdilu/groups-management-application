@@ -20,9 +20,10 @@ class Group extends Component {
                       value={this.state.groupName}
                       name="groupName"
                       onChange={this.handleInputChange}
+                      fontWeight="bold"
                       required
                     >
-                      <option key="" value="">
+                      <option  key="" value="">
                         Select Group
                       </option>
                       {this.props.allGroups.map(group => (

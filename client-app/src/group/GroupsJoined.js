@@ -14,8 +14,13 @@ class GroupsJoined extends Component {
       <div className="page-container">
         <div className="page-content">
           <h2 className="page-title">Joined Groups</h2>
-          <table id="groups">
-            <tbody>{this.renderGroupsData()}</tbody>
+          <table class="centerposition" align="center" id="joinedGroups" border-collapse="collapse" border="1">
+            <tbody>
+            <tr>
+      <td className="page-title">Group Name</td>
+      <td className="page-title">Admin Id</td>
+    </tr>
+    {this.renderGroupsData()}</tbody>
           </table>
         </div>
       </div>

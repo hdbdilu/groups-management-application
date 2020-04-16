@@ -14,7 +14,11 @@ class Members extends Component {
       <div className="page-container">
         <div className="page-content">
           <h2 className="page-title">Members</h2>
-          <table id="groups">
+          <table class="centerposition" align="center" id="members" border-collapse="collapse" border="1">
+          <tr>
+          <td className="page-title">Member Email</td>
+           <td className="page-title">Member Name</td>
+          </tr>
             <tbody>{this.renderMembersData()}</tbody>
           </table>
         </div>

@@ -69,7 +69,7 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <div className="app-top-box">
+        <div className="app-top-box" background-color="#D6EAF8">
           <AppHeader
             authenticated={this.state.authenticated}
             onLogout={this.handleLogout}

@@ -175,7 +175,9 @@ public class GroupController {
 	@GetMapping("/allGroups")
 	public ResponseEntity<?> allGroups(@CurrentUser CustomUserDetailsPrincipal userPrincipal)
 			throws BadRequestException, UserNotAuthorizedException {
-		List<Group> allGroups = groupRepo.findAll();
+		List<Group> allGroups = groupRepo.findAll().stream()
+				.filter(group -> !(userPrincipal.getEmail().equalsIgnoreCase(group.getAdminName())))
+				.collect(Collectors.toList());
 		return ResponseEntity.ok().body(allGroups);
 
 	}

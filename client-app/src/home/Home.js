@@ -30,48 +30,74 @@ class Home extends Component {
         <div className="page-container">
           <div className="page-content">
             <div className="app-title">
-              {this.props.authenticated ? (
-                <h2>Welcome {this.props.username}</h2>
-              ) : (
-                <div></div>
-              )}
+              
+               
+                <h3>Welcome {this.props.username} to Admin Dashboard<p>You can Manage groups created by you here</p></h3>
+               
+                
+              
             </div>
-            <h3 className="page-title">Admin Dashboard</h3>
-            <table id="groups">
-              <tbody>{this.renderGroupsData()}</tbody>
+            <table className="page-title" align="center" id="groups" border-collapse="collapse" border="1">
+              <tbody>
+              <tr>
+      <td className="page-title">Group Name</td>
+      <td className="page-title">Members count</td>
+      <td className="page-title">Creation Date</td>
+      <td className="page-title">Admin Id</td>
+    </tr>
+    {this.renderGroupsData()}</tbody>
             </table>
-            <ul>
-              <li>
+            <div>
+            <table className="app-title" align="center" margin="10px" padding="10px">
+            <tbody>
+              <tr >
+                <td>
+            <div>
+              
                 <Link
                   to={{
                     pathname: "/ChangeGroupName",
                     currentUserAdminGroups: this.state.currentUserAdminGroups
                   }}
-                >
+                ><button className="btn  btn-primary">
                   Change Group Name
+                  </button>
                 </Link>
-              </li>
-              <li>
+              </div>
+              </td>
+              </tr><tr>
+              <td>
+              <div>
                 <Link
                   to={{
                     pathname: "/MembersDetails",
                     currentUserAdminGroups: this.state.currentUserAdminGroups
                   }}
                 >
+                 <button className="btn  btn-primary">
                   Member Details
+                  </button>
                 </Link>
-              </li>
-              <li>
+              </div>
+              </td></tr>
+              <tr><td>
+              <div>
                 <Link
                   to={{
                     pathname: "/RemoveMembers",
                     currentUserAdminGroups: this.state.currentUserAdminGroups
                   }}
                 >
+                  <button className="btn  btn-primary">
                   Remove Members
+                  </button>
                 </Link>
-              </li>
-            </ul>
+              </div>
+              </td></tr>
+       
+              </tbody>
+              </table>
+              </div>
           </div>
         </div>
       );
@@ -85,6 +111,7 @@ class Home extends Component {
     );
   }
   renderGroupsData() {
+   
     return this.state.currentUserAdminGroups.map(group => {
       return (
         <tr key={group.groupName}>
@@ -99,12 +126,16 @@ class Home extends Component {
             </Link>
           </td>
           <td className="page-title">{group.membersCount}</td>
-          <td className="page-title">{group.groupCreationTime}</td>
+          <td className="page-title">{this.formatDate(group.groupCreationTime.toString())}</td>
           <td className="page-title">{group.adminId}</td>
         </tr>
       );
     });
   }
+  formatDate(datestring){
+    var options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(datestring).toLocaleDateString([],options);
+}
 }
 
 export default Home;
