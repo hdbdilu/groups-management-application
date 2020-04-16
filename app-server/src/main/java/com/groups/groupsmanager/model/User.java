@@ -52,4 +52,16 @@ public class User {
 		this.password = password;
 	}
 
+	public User(Long id, String email, String name, String password) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.name = name;
+		this.password = password;
+	}
+
+	public User() {
+
+	}
+
 }

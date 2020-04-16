@@ -65,4 +65,17 @@ public class Group {
 		this.groupName = groupName;
 	}
 
+	public Group(Long id, String groupName, Long adminId, String adminName, Date creationTime) {
+		super();
+		this.id = id;
+		this.groupName = groupName;
+		this.adminId = adminId;
+		this.adminName = adminName;
+		this.creationTime = creationTime;
+	}
+
+	public Group() {
+
+	}
+
 }
