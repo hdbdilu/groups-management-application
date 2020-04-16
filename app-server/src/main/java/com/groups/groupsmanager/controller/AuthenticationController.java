@@ -56,19 +56,23 @@ public class AuthenticationController {
 		if (userRepo.existsByEmail(signupRequest.getEmail())) {
 			throw StringUtils.hasText(userRepo.findByEmail(signupRequest.getEmail()).get().getPassword())
 					? new BadRequestException("This email id is already registered")
-					: new BadRequestException(
-							"You have already registered with Google using this email Id. Please use another emailId for signup");
+					: new BadRequestException("You have already registered with Google using this email Id."
+							+ "Please use another emailId for signup or Login with google");
 
 		}
+		User result = createUser(signupRequest);
+		URI location = ServletUriComponentsBuilder.fromCurrentContextPath().path("currentUser")
+				.buildAndExpand(result.getId()).toUri();
+		return ResponseEntity.created(location).body(new RegistrationResponse("Successfully Registered", Boolean.TRUE));
 
+	}
+
+	private User createUser(RegistrationRequest signupRequest) {
 		User u = new User();
 		u.setEmail(signupRequest.getEmail());
 		u.setName(signupRequest.getName());
 		u.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
 		User result = userRepo.save(u);
-		URI location = ServletUriComponentsBuilder.fromCurrentContextPath().path("currentUser")
-				.buildAndExpand(result.getId()).toUri();
-		return ResponseEntity.created(location).body(new RegistrationResponse("Successfully Registered", Boolean.TRUE));
-
+		return result;
 	}
 }

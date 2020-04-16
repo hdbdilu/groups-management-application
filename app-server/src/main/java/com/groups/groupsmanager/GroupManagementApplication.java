@@ -8,10 +8,10 @@ import com.groups.groupsmanager.config.ApplicationConfiguration;
 
 @SpringBootApplication
 @EnableConfigurationProperties(ApplicationConfiguration.class)
-public class SpringGroupsManagerApplication {
+public class GroupManagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringGroupsManagerApplication.class, args);
+		SpringApplication.run(GroupManagementApplication.class, args);
 	}
 
 }
