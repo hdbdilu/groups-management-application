@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../user/login/Page.css";
+import Moment from 'react-moment';
 
 import { Link } from "react-router-dom";
 import { getCurrentUserAdminGroups } from "../util/RestApiCaller";
@@ -133,8 +134,7 @@ class Home extends Component {
     });
   }
   formatDate(datestring){
-    var options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(datestring).toLocaleDateString([],options);
+   return <Moment format="DD-MMM-YYYY">{datestring}</Moment>
 }
 }
 
