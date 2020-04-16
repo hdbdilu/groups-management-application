@@ -8,27 +8,27 @@ This is a group management application built using springboot with spring securi
 Once all three services are up, three containers are started for three services and application can be accessed on :
 http://localhost:3000
 
-# Steps to build the application using docker:
+# Steps to build the application using docker-compose:
 
 1. Clone this repository in local.
 2. Change directory to the location of the repository.
 
 To build images for app-server, client-app , db 
-run:
-   # docker-compose build
+run: 
+   docker-compose build
 
 This step will download all maven dependencies for app-server. Once app-server is up, it will build client app and download all node modules. After this step three services will be started : will be created.
 
 To start three containers 
-run:
-    # docker-compose up
+run: 
+   docker-compose up
 
-Once all three containers are up, go to your browser and hit : http://localhost:8080
+Once all three containers are up, go to your browser and hit : http://localhost:3000
 
 Signup using google or manual and start creating and managing groups.
 
 
-# Steps to build the application using docker:
+# Steps to build the application locally with maven and npm:
 1.	Clone this repository and change location to this repository.
 2.	Install mysql db and start mysql
 3.	Create a new db, db user and set its password or use root user. Update the same configuration in application.properties file of app-server folder.
