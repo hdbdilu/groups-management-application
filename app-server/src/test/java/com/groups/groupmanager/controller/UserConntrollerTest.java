@@ -2,7 +2,6 @@ package com.groups.groupmanager.controller;
 
 import java.util.Optional;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -11,6 +10,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.util.Assert;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -41,7 +41,8 @@ public class UserConntrollerTest {
 		Mockito.when(userPrincipal.getId()).thenReturn(1L);
 		Mockito.when(userRepo.findById(1L)).thenReturn(user);
 		ResponseEntity<?> responseEntity = userController.getCurrentUser(userPrincipal);
-		Assert.assertEquals(responseEntity.getStatusCodeValue(), 200);
+		// Assert.assertEquals(responseEntity.getStatusCodeValue(), 200);
+		Assert.state(responseEntity.getStatusCodeValue() == 200);
 
 	}
 

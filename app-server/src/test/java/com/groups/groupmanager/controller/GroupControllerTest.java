@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -13,6 +12,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.util.Assert;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -44,7 +44,7 @@ public class GroupControllerTest {
 		Mockito.when(userPrincipal.getEmail()).thenReturn("Nitika Goel");
 		Mockito.when(groupRepo.findAll()).thenReturn(groups);
 		ResponseEntity<?> responseEntity = groupController.allGroups(userPrincipal);
-		Assert.assertEquals(responseEntity.getStatusCodeValue(), 200);
+		Assert.state(responseEntity.getStatusCodeValue() == 200);
 
 	}
 

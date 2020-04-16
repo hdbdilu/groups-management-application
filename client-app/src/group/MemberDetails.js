@@ -48,7 +48,6 @@ class MemberDetails extends Component {
     );
   }
   fetchMembers = () => {
-    console.log(this.state.groupName);
     this.props.history.push("/members", this.state.groupName);
   };
   handleInputChange = event => {

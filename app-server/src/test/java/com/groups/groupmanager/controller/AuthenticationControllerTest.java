@@ -2,7 +2,6 @@ package com.groups.groupmanager.controller;
 
 import java.util.Optional;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -11,6 +10,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.util.Assert;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -55,7 +55,8 @@ public class AuthenticationControllerTest {
 		try {
 			authenticationController.signUp(registrationRequest);
 		} catch (BadRequestException ex) {
-			Assert.assertNotNull(ex.getMessage());
+			// Assert.assertEquals(responseEntity.getStatusCodeValue(), 200);
+			Assert.notNull(ex.getMessage());
 		}
 
 	}
